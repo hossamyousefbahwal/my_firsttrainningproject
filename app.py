@@ -81,9 +81,9 @@ def add_user():
         conn.close()
     return redirect(url_for('home'))
 
-import os
-
 # ... بقية كود الـ Flask وقاعدة البيانات الخاص بك ...
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    init_db()
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
